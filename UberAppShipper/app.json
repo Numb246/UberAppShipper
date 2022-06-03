@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "UberAppShipper",
-    "slug": "UberAppShipper",
+    "name": "UberEatsCourier",
+    "slug": "UberEatsCourier",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
