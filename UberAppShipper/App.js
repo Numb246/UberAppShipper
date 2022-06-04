@@ -1,18 +1,20 @@
-import { StatusBar } from "expo-status-bar";
-import { StyleSheet, Text, View, Image } from "react-native";
-import orders from "./assets/data/orders.json";
+import { StatusBar } from 'expo-status-bar';
+import { StyleSheet, View, FlatList } from 'react-native';
+import orders from './assets/data/orders.json';
+// import OrdersScreen from './src/screens/OrdersScreen';
+import OrderDelivery from './src/screens/OrderDelivery';
 
 const order = orders[0];
+
 export default function App() {
   return (
     <View style={styles.container}>
-      <View>
-        <Image
-          source={{ uri: order.Restaurant.image }}
-          style={{ width: 50, height: 50 }}
-        />
-        <Text>{order.Restaurant.name}</Text>
-      </View>
+      {/* <FlatList
+        data={orders}
+        renderItem={({item}) => <OrderItem order={item} />}
+      /> */}
+      {/* <OrdersScreen /> */}
+      <OrderDelivery />
       <StatusBar style="auto" />
     </View>
   );
@@ -21,8 +23,8 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
+    backgroundColor: '#fff',
+    justifyContent: 'center',
+    paddingTop: 50
   },
 });
