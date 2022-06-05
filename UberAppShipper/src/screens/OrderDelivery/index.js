@@ -198,7 +198,7 @@ const OrderDelivery = () => {
             </MapView>
             {deliveryStatus === ORDER_STATUSES.READY_FOR_PICKUP && (
                 <Ionicons 
-                onPress={()=>navigation.goback()}
+                onPress={()=>navigation.goBack()}
                 name="arrow-back-circle"
                 size={45}
                 color="white"
