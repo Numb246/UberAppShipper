@@ -53,7 +53,6 @@ export default StyleSheet.create({
         marginBottom: 5
     },
     buttonContainer: {
-        backgroundColor: "#3FC060", 
         marginTop: 'auto', 
         marginBottom: 30, 
         marginVertical: 30, 
