@@ -1,5 +1,5 @@
 import { useRef, useMemo } from 'react';
-import { View, Text, FlatList, Dimensions, useWindowDimensions} from 'react-native';
+import { View, Text, FlatList, useWindowDimensions, } from 'react-native';
 import BottomSheet from '@gorhom/bottom-sheet';
 import orders from '../../../assets/data/orders.json'
 import OrderItem from '../../components/OrderItem';
@@ -8,11 +8,15 @@ import MapView, {Marker} from 'react-native-maps';
 import {Entypo} from '@expo/vector-icons';
 
 
+
 const OrdersScreen = () => {
+    
     const bottomSheetRef = useRef(null);
     const { width, height } = useWindowDimensions();
 
     const snapPoints =useMemo(() => ["12%", "95%"], [] )
+
+
     return (
     <GestureHandlerRootView  style={{backgroundColor: "lightblue", flex: 1}}>    
         <MapView 
@@ -22,6 +26,7 @@ const OrdersScreen = () => {
             }} 
             showsUserLocation 
             followsUserLocation
+            
         >
 
             {orders.map((order) => (
@@ -35,7 +40,7 @@ const OrdersScreen = () => {
                     }}
                     >
                     <View 
-                        style={{backgroundColor:'green',padding:5, borderRadius:15}}
+                        style={{backgroundColor:'green',padding:5, borderRadius:20}}
                     >
                         <Entypo name='shop' size={24} color="white"/>
                     </View>
