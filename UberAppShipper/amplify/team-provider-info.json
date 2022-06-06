@@ -1,0 +1,20 @@
+{
+  "staging": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-uberappver2-staging-151814-authRole",
+      "UnauthRoleArn": "arn:aws:iam::551613965675:role/amplify-uberappver2-staging-151814-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::551613965675:role/amplify-uberappver2-staging-151814-authRole",
+      "Region": "eu-west-1",
+      "DeploymentBucketName": "amplify-uberappver2-staging-151814-deployment",
+      "UnauthRoleName": "amplify-uberappver2-staging-151814-unauthRole",
+      "StackName": "amplify-uberappver2-staging-151814",
+      "StackId": "arn:aws:cloudformation:eu-west-1:551613965675:stack/amplify-uberappver2-staging-151814/10811f90-dd07-11ec-91e9-02bea95e2581",
+      "AmplifyAppId": "d3506um1suw35e"
+    },
+    "categories": {
+      "auth": {
+        "UberAppVer2": {}
+      }
+    }
+  }
+}
