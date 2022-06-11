@@ -1,8 +1,8 @@
-import { createContext, useState, useEffect, useContext } from "react";
+import { createContext, useEffect, useState, useContext } from "react";
 import { Auth, DataStore } from "aws-amplify";
 import { Courier, Order, User, OrderDish } from "../models";
 import { useAuthContext } from "./AuthContext";
-import { LogBox } from "react-native-web";
+import { set } from "react-native-reanimated";
 
 const OrderContext = createContext({});
 
@@ -17,36 +17,63 @@ const OrderContextProvider = ({ children }) => {
       setOrder(null);
       return;
     }
-    const fechedOrder = await DataStore.query(Order, id);
-    setOrder(fechedOrder);
-    DataStore.query(User, fechedOrder.userID).then(setUser);
-    DataStore.query(OrderDish, (od) => od.orderID("eq", fechedOrder.id)).then(
+    const fetchedOrder = await DataStore.query(Order, id);
+    setOrder(fetchedOrder);
+
+    DataStore.query(User, fetchedOrder.userID).then(setUser);
+
+    DataStore.query(OrderDish, (od) => od.orderID("eq", fetchedOrder.id)).then(
       setDishes
     );
   };
-  const acceptOrder = () => {
-    DataStore.save(
+
+  useEffect(() => {
+    if (!order) {
+      return;
+    }
+
+    const subscription = DataStore.observe(Order, order.id).subscribe(
+      ({ opType, element }) => {
+        if (opType === "UPDATE") {
+          fetchOrder(element.id);
+        }
+      }
+    );
+
+    return () => subscription.unsubscribe();
+  }, [order?.id]);
+
+  const acceptOrder = async () => {
+    // update the order, and change status, and assign the courier
+    const updatedOrder = await DataStore.save(
       Order.copyOf(order, (updated) => {
         updated.status = "ACCEPTED";
         updated.Courier = dbCourier;
       })
-    ).then(setOrder);
+    );
+    setOrder(updatedOrder);
   };
 
-  const pickUpOrder = () => {
-    DataStore.save(
+  const pickUpOrder = async () => {
+    // update the order, and change status, and assign the courier
+    const updatedOrder = await DataStore.save(
       Order.copyOf(order, (updated) => {
         updated.status = "PICKED_UP";
       })
-    ).then(setOrder);
+    );
+    setOrder(updatedOrder);
   };
-  const completeOrder = () => {
-    DataStore.save(
+
+  const completeOrder = async () => {
+    // update the order, and change status, and assign the courier
+    const updatedOrder = await DataStore.save(
       Order.copyOf(order, (updated) => {
         updated.status = "COMPLETED";
       })
-    ).then(setOrder);
+    );
+    setOrder(updatedOrder);
   };
+
   return (
     <OrderContext.Provider
       value={{
