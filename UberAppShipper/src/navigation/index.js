@@ -4,6 +4,7 @@ import OrdersDeliveryScreen from "../screens/OrderDelivery";
 import ProfileScreen from "../screens/ProfileScreen";
 import { useAuthContext } from "../contexts/AuthContext";
 import { ActivityIndicator } from "react-native";
+import i18n from "../../languages/i18n";
 
 const Stack = createNativeStackNavigator();
 
