@@ -1,6 +1,6 @@
 {
   "api": {
-    "UberAppVer2": {
+    "Uber3": {
       "service": "AppSync",
       "providerPlugin": "awscloudformation",
       "dependsOn": [],
@@ -23,7 +23,7 @@
     }
   },
   "auth": {
-    "UberAppVer2": {
+    "Uber3": {
       "service": "Cognito",
       "providerPlugin": "awscloudformation",
       "dependsOn": [],

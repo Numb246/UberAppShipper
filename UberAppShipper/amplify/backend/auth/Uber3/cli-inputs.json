@@ -3,8 +3,8 @@
   "cognitoConfig": {
     "identityPoolName": "testAuthIdentityPool",
     "allowUnauthenticatedIdentities": false,
-    "resourceNameTruncated": "uberap19bc4433",
-    "userPoolName": "UberAppVer2",
+    "resourceNameTruncated": "uber31df4d4fc",
+    "userPoolName": "Uber3",
     "autoVerifiedAttributes": [
       "email"
     ],
@@ -30,10 +30,10 @@
     "userpoolClientRefreshTokenValidity": 30,
     "userpoolClientWriteAttributes": [],
     "userpoolClientReadAttributes": [],
-    "userpoolClientLambdaRole": "UberAp19bc4433_userpoolclient_lambda_role",
+    "userpoolClientLambdaRole": "Uber31df4d4fc_userpoolclient_lambda_role",
     "userpoolClientSetAttributes": false,
-    "sharedId": "19bc4433",
-    "resourceName": "UberAppVer2",
+    "sharedId": "1df4d4fc",
+    "resourceName": "Uber3",
     "authSelections": "identityPoolAndUserPool",
     "serviceName": "Cognito",
     "usernameAttributes": [
