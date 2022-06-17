@@ -12,8 +12,12 @@ import MapView from "react-native-maps";
 import { DataStore } from "aws-amplify";
 import { Order } from "../../models";
 import CustomMarker from "../../components/CustomMarker";
+import React from "react";
+import { useTranslation } from "react-i18next";
 
 const OrdersScreen = () => {
+  const { t } = useTranslation();
+
   const [orders, setOrders] = useState([]);
   const [driverLocation, setDriverLocation] = useState(null);
 
@@ -95,10 +99,10 @@ const OrdersScreen = () => {
               paddingBottom: 5,
             }}
           >
-            You're Online
+            {t("Online")}
           </Text>
           <Text style={{ letterSpacing: 0.5, color: "grey" }}>
-            Available Orders: {orders.length}
+            {t("Available Orders")}: {orders.length}
           </Text>
         </View>
         <BottomSheetFlatList
